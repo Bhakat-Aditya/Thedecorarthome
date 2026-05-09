@@ -7,10 +7,8 @@ export default function ProductCard({ product }) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [customInfo, setCustomInfo] = useState("");
 
-  // Generate the highly-structured WhatsApp Message
   const getWhatsAppLink = () => {
     const message = `Hi Thedecorarthome! 🎨\n\nI would like to commission a custom piece based on your portfolio:\n\n*Product ID:* ${product.id}\n*Product Name:* ${product.name}\n*Selected Size:* ${selectedSize}\n\n*Custom Instructions / Colors / Details:*\n${customInfo ? customInfo : "Please contact me to discuss details."}\n\nCould you please provide me with an exact quote and timeline for this?`;
-
     return `https://wa.me/${businessInfo.phone}?text=${encodeURIComponent(message)}`;
   };
 
@@ -18,13 +16,22 @@ export default function ProductCard({ product }) {
     <>
       {/* 1. THE PRODUCT CARD */}
       <div className="group flex flex-col bg-white dark:bg-stone-900 rounded-[2rem] overflow-hidden border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:shadow-amber-900/5 transition-all duration-500">
-        <div className="relative h-72 overflow-hidden bg-stone-100 dark:bg-stone-800">
+        {/* IMAGE CONTAINER WITH PROTECTION & WATERMARK */}
+        <div
+          className="relative h-72 overflow-hidden bg-stone-100 dark:bg-stone-800 select-none"
+          onContextMenu={(e) => e.preventDefault()} // Disables right-click
+        >
           <img
             src={product.img}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none"
             loading="lazy"
+            draggable="false"
           />
+          {/* The Watermark */}
+          <div className="absolute bottom-3 w-full text-center text-white/80 font-serif text-xs font-bold tracking-[0.3em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] pointer-events-none z-10">
+            Thedecorarthome
+          </div>
         </div>
 
         <div className="p-8 flex flex-col flex-grow">
@@ -48,18 +55,15 @@ export default function ProductCard({ product }) {
         </div>
       </div>
 
-      {/* 2. THE CUSTOMIZATION MODAL (Opens when button is clicked) */}
+      {/* 2. THE CUSTOMIZATION MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-          {/* Blur Backdrop */}
           <div
             className="absolute inset-0 bg-stone-900/60 backdrop-blur-sm transition-opacity"
             onClick={() => setIsModalOpen(false)}
           ></div>
 
-          {/* Modal Content Box */}
           <div className="relative w-full max-w-4xl bg-white dark:bg-stone-950 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row z-10 max-h-[90vh] animate-fade-in-up">
-            {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-4 right-4 z-20 p-2 bg-white/50 dark:bg-black/50 backdrop-blur-md rounded-full text-stone-900 dark:text-white hover:bg-amber-500 hover:text-white transition-colors"
@@ -67,19 +71,26 @@ export default function ProductCard({ product }) {
               <X className="w-5 h-5" />
             </button>
 
-            {/* Left Side: Image */}
-            <div className="w-full md:w-1/2 h-64 md:h-auto bg-stone-100 dark:bg-stone-900 relative">
+            {/* Modal Image with Protection */}
+            <div
+              className="w-full md:w-1/2 h-64 md:h-auto bg-stone-100 dark:bg-stone-900 relative select-none"
+              onContextMenu={(e) => e.preventDefault()}
+            >
               <img
                 src={product.img}
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover pointer-events-none"
+                draggable="false"
               />
-              <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs tracking-widest uppercase">
+              <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs tracking-widest uppercase z-20">
                 ID: {product.id}
+              </div>
+              {/* Modal Watermark */}
+              <div className="absolute bottom-4 right-0 w-full text-center text-white/80 font-serif text-sm font-bold tracking-[0.3em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] pointer-events-none z-10">
+                Thedecorarthome
               </div>
             </div>
 
-            {/* Right Side: Configuration Form */}
             <div className="w-full md:w-1/2 p-8 md:p-10 flex flex-col overflow-y-auto">
               <h3 className="text-3xl font-serif font-bold text-stone-900 dark:text-white mb-2">
                 {product.name}
@@ -89,7 +100,6 @@ export default function ProductCard({ product }) {
                 details below to request a quote.
               </p>
 
-              {/* Size Selection */}
               <div className="mb-6">
                 <label className="block text-xs font-bold tracking-widest uppercase text-stone-500 mb-3">
                   1. Select Preferred Size
@@ -111,14 +121,13 @@ export default function ProductCard({ product }) {
                 </div>
               </div>
 
-              {/* Custom Instructions */}
               <div className="mb-8 flex-grow">
                 <label className="block text-xs font-bold tracking-widest uppercase text-stone-500 mb-3">
                   2. Customization Details
                 </label>
                 <textarea
                   rows="4"
-                  placeholder="e.g., I would like blue ocean colors, gold flakes, and the name 'Sharma' written in cursive acrylic font..."
+                  placeholder="e.g., I would like blue ocean colors, gold flakes, and the name 'Sharma'..."
                   value={customInfo}
                   onChange={(e) => setCustomInfo(e.target.value)}
                   className="w-full p-4 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 resize-none"
@@ -129,7 +138,6 @@ export default function ProductCard({ product }) {
                 </p>
               </div>
 
-              {/* Send to WhatsApp Button */}
               <a
                 href={getWhatsAppLink()}
                 target="_blank"
