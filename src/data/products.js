@@ -2,98 +2,155 @@ export const portfolio = [
   {
     id: "cat-1",
     category: "House Name Plates",
-    description: "Welcome guests with personalized, handcrafted resin and wood name plates.",
+    description: "",
     items: [
       {
         id: "NP-01",
-        name: "Ocean Wave Name Plate",
-        desc: "Premium wooden board with layered ocean resin waves and acrylic golden lettering.",
-        price: "₹1,500 - ₹2,500",
-        img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
-        sizes: ["12x8 inches", "16x10 inches", "20x12 inches"]
+        name: "House Plate 1",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/house-plate-1.jpeg",
+        sizes: ["Standard"]
       },
       {
         id: "NP-02",
-        name: "Floral Resin Name Plate",
-        desc: "Clear resin name plate embedded with real dried flowers and gold flakes.",
-        price: "₹1,800 - ₹3,000",
-        img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
-        sizes: ["10x6 inches", "14x8 inches"]
+        name: "House Plate 2",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/house-plate-2.jpeg",
+        sizes: ["Standard"]
       }
     ]
   },
   {
     id: "cat-2",
     category: "Luxury Clocks",
-    description: "Functional wall art adorned with stones, glass, and rich pigments.",
+    description: "",
     items: [
       {
         id: "CLK-01",
-        name: "Midnight Amethyst Geode Clock",
-        desc: "A stunning geode-style wall clock with crushed glass and purple/gold pigments.",
-        price: "₹2,500 - ₹4,500",
-        img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
-        sizes: ["12 inch diameter", "16 inch diameter", "24 inch diameter"]
+        name: "Clock 1",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-1.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "CLK-02",
+        name: "Clock 2",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-2.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "CLK-03",
+        name: "Clock 3",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-3.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "CLK-04",
+        name: "Clock 4",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-4.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "CLK-05",
+        name: "Clock 5",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-5.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "CLK-06",
+        name: "Clock 6",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-6.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "CLK-07",
+        name: "Clock 7",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-7.jpeg",
+        sizes: ["Standard"]
       }
     ]
   },
   {
     id: "cat-3",
-    category: "Photo Rakhis",
-    description: "Celebrate sibling bonds with customized resin Rakhis featuring miniature photos.",
+    category: "Wall Art",
+    description: "",
     items: [
       {
-        id: "RK-01",
-        name: "Oval Gold-Flake Photo Rakhi",
-        desc: "Miniature photo set in a clear resin oval with a premium silk thread.",
-        price: "₹250 - ₹400",
-        img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
-        sizes: ["Standard Size"]
+        id: "WA-01",
+        name: "Wall Art 1",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wall-art-1.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "WA-02",
+        name: "Wall Art 2",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wall-art-2.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "WA-03",
+        name: "Wall Art 3",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wall-art-3.jpeg",
+        sizes: ["Standard"]
+      },
+      {
+        id: "WA-04",
+        name: "Wall Art 4",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wall-art-4.jpeg",
+        sizes: ["Standard"]
       }
     ]
   },
   {
     id: "cat-4",
-    category: "Photo Frames & Posters",
-    description: "Cherish your memories in custom resin-treated frames.",
+    category: "Stone Name Initials",
+    description: "",
     items: [
       {
-        id: "FRM-01",
-        name: "Vintage Jewel Photo Frame",
-        desc: "Hand-painted frame coated in glossy resin with embedded vintage jewel accents.",
-        price: "₹800 - ₹1,500",
-        img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
-        sizes: ["4x6 Photo", "5x7 Photo", "8x10 Photo"]
+        id: "INI-01",
+        name: "Initials 1",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/initials-1.jpeg",
+        sizes: ["Standard"]
       }
     ]
   },
   {
     id: "cat-5",
-    category: "Stone Name Initials",
-    description: "Freestanding letters cast in resin with stones and flowers.",
+    category: "Key Chains",
+    description: "",
     items: [
       {
-        id: "INI-01",
-        name: "Botanical Resin Alphabet",
-        desc: "Custom alphabet letter filled with preserved botanicals and fairy lights.",
-        price: "₹600 - ₹900",
-        img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
-        sizes: ["4 inches tall", "6 inches tall", "8 inches tall"]
-      }
-    ]
-  },
-  {
-    id: "cat-6",
-    category: "Small Showpieces & Decor",
-    description: "Perfect desk accessories and coffee table centerpieces.",
-    items: [
-      {
-        id: "DEC-01",
-        name: "Resin Geode Coaster Set",
-        desc: "Set of 4 luxury resin coasters with gold-painted edges.",
-        price: "₹800 - ₹1,200",
-        img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
-        sizes: ["Set of 2", "Set of 4", "Set of 6"]
+        id: "KC-01",
+        name: "Key Chain 1",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/key-chain-1.jpeg",
+        sizes: ["Standard"]
       }
     ]
   }

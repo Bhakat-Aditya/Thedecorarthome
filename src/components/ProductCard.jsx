@@ -8,7 +8,9 @@ export default function ProductCard({ product }) {
   const [customInfo, setCustomInfo] = useState("");
 
   const getWhatsAppLink = () => {
-    const message = `Hi Thedecorarthome! 🎨\n\nI would like to commission a custom piece based on your portfolio:\n\n*Product ID:* ${product.id}\n*Product Name:* ${product.name}\n*Selected Size:* ${selectedSize}\n\n*Custom Instructions / Colors / Details:*\n${customInfo ? customInfo : "Please contact me to discuss details."}\n\nCould you please provide me with an exact quote and timeline for this?`;
+    // Clean, direct, and simple WhatsApp message (No image links, no extra fluff)
+    const message = `Hi Thedecorarthome!\n\nI am interested in ordering:\n\n*Product Name:* ${product.name}\n*Product ID:* ${product.id}\n*Size:* ${selectedSize}\n\n*Custom Details:*\n${customInfo ? customInfo : "No specific details added. Let's discuss."}\n\nPlease let me know the quote and timeline.`;
+
     return `https://wa.me/${businessInfo.phone}?text=${encodeURIComponent(message)}`;
   };
 
@@ -19,7 +21,7 @@ export default function ProductCard({ product }) {
         {/* IMAGE CONTAINER WITH PROTECTION & WATERMARK */}
         <div
           className="relative h-72 overflow-hidden bg-stone-100 dark:bg-stone-800 select-none"
-          onContextMenu={(e) => e.preventDefault()} // Disables right-click
+          onContextMenu={(e) => e.preventDefault()}
         >
           <img
             src={product.img}
@@ -85,7 +87,6 @@ export default function ProductCard({ product }) {
               <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs tracking-widest uppercase z-20">
                 ID: {product.id}
               </div>
-              {/* Modal Watermark */}
               <div className="absolute bottom-4 right-0 w-full text-center text-white/80 font-serif text-sm font-bold tracking-[0.3em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] pointer-events-none z-10">
                 Thedecorarthome
               </div>

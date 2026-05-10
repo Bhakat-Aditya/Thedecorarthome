@@ -137,14 +137,7 @@ export default function Home() {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="w-12 h-12 md:w-20 md:h-20 bg-stone-200 dark:bg-stone-900 rounded-full flex items-center justify-center mb-6 md:mb-8 shadow-2xl border border-stone-300 dark:border-stone-700">
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-amber-600 dark:text-amber-500" />
-          </div>
-
-          <span className="text-[10px] md:text-sm tracking-[0.3em] md:tracking-[0.4em] uppercase text-stone-500 dark:text-stone-400 mb-4 md:mb-6 font-bold">
-            Step Into Our Studio
-          </span>
-
+         
           <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 dark:text-white leading-[1.1] md:leading-[1.05] mb-6 md:mb-8 tracking-tight">
             A warm welcome to <br className="hidden md:block" />
             <span className="italic text-amber-700 dark:text-amber-500 font-bold drop-shadow-sm">
