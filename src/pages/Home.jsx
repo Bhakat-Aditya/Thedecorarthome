@@ -573,7 +573,8 @@ export default function Home() {
                 onContextMenu={(e) => e.preventDefault()}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop
+                  "
                   className="w-full h-full object-cover pointer-events-none"
                   draggable="false"
                   alt="Customer Photo"
@@ -639,25 +640,25 @@ export default function Home() {
       </section>
 
       {/* =========================================================
-          8. ELEGANT CTA
+          8. ELEGANT CTA (Now Light/Dark Mode Responsive)
           ========================================================= */}
-      <section className="py-40 bg-stone-900 dark:bg-[#050505] text-white text-center px-6 border-t border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
+      <section className="py-40 bg-white dark:bg-[#050505] text-stone-900 dark:text-white text-center px-6 border-t border-stone-200 dark:border-white/5 relative overflow-hidden transition-colors duration-500">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 dark:opacity-20 pointer-events-none mix-blend-overlay"></div>
         <div className="max-w-4xl mx-auto relative z-10">
           <Sparkles className="w-12 h-12 text-amber-500 mx-auto mb-8 animate-pulse" />
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-10 leading-tight">
             Ready to commission your <br className="hidden md:block" /> personal
             masterpiece?
           </h2>
-          <p className="text-stone-400 mb-16 text-xl font-light max-w-2xl mx-auto">
+          <p className="text-stone-600 dark:text-stone-400 mb-16 text-xl font-light max-w-2xl mx-auto">
             Every creation is completely customizable in size, style, and
             finish. Connect with me directly on WhatsApp to discuss your vision.
           </p>
           <a
-            href={`https://wa.me/${businessInfo.phone}`}
+            href={`https://wa.me/${businessInfo.phone}?text=${encodeURIComponent("Hi! I saw your website, can I have a talk with you? 🎨")}`}
             target="_blank"
             rel="noreferrer"
-            className="inline-block bg-white text-stone-900 hover:bg-amber-500 hover:text-white px-12 py-6 rounded-full text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2"
+            className="inline-block bg-stone-900 dark:bg-white text-white dark:text-stone-900 hover:bg-amber-500 dark:hover:bg-amber-500 hover:text-white dark:hover:text-white px-12 py-6 rounded-full text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2"
           >
             Message on WhatsApp
           </a>
