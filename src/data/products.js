@@ -5,21 +5,61 @@ export const portfolio = [
     description: "",
     items: [
       {
-        id: "NP-01",
+        id: "HP-01",
         name: "House Plate 1",
         desc: "",
         price: "Contact for Quote",
         img: "/house-plate-1.jpeg",
-        sizes: ["Standard"]
       },
       {
-        id: "NP-02",
+        id: "HP-02",
         name: "House Plate 2",
         desc: "",
         price: "Contact for Quote",
         img: "/house-plate-2.jpeg",
-        sizes: ["Standard"]
-      }
+      },
+      {
+        id: "HP-03",
+        name: "House Plate 3",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/house-plate-3.jpeg",
+      },
+      {
+        id: "HP-04",
+        name: "House Plate 4",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/house-plate-4.jpeg",
+      },
+      {
+        id: "HP-05",
+        name: "House Plate 5",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/house-plate-5.jpeg",
+      },
+      {
+        id: "HP-06",
+        name: "House Plate 6",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/house-plate-6.jpeg",
+      },
+      {
+        id: "HP-07",
+        name: "House Plate 7",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/house-plate-7.jpeg",
+      },
+      {
+        id: "HP-08",
+        name: "House Plate 8",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/house-plate-8.jpeg",
+      },
     ]
   },
   {
@@ -33,7 +73,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/clock-1.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "CLK-02",
@@ -41,7 +80,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/clock-2.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "CLK-03",
@@ -49,7 +87,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/clock-3.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "CLK-04",
@@ -57,7 +94,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/clock-4.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "CLK-05",
@@ -65,7 +101,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/clock-5.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "CLK-06",
@@ -73,7 +108,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/clock-6.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "CLK-07",
@@ -81,8 +115,21 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/clock-7.jpeg",
-        sizes: ["Standard"]
-      }
+      },
+      {
+        id: "CLK-08",
+        name: "Clock 8",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-8.jpeg",
+      },
+      {
+        id: "CLK-09",
+        name: "Clock 9",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/clock-9.jpeg",
+      },
     ]
   },
   {
@@ -96,7 +143,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/wall-art-1.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "WA-02",
@@ -104,7 +150,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/wall-art-2.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "WA-03",
@@ -112,7 +157,6 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/wall-art-3.jpeg",
-        sizes: ["Standard"]
       },
       {
         id: "WA-04",
@@ -120,8 +164,28 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/wall-art-4.jpeg",
-        sizes: ["Standard"]
-      }
+      },
+      {
+        id: "WA-05",
+        name: "Wall Art 5",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wall-art-5.jpeg",
+      },
+      {
+        id: "WA-06",
+        name: "Wall Art 6",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wall-art-6.jpeg",
+      },
+      {
+        id: "WA-07",
+        name: "Wall Art 7",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wall-art-7.jpeg",
+      },
     ]
   },
   {
@@ -135,8 +199,28 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/initials-1.jpeg",
-        sizes: ["Standard"]
-      }
+      },
+      {
+        id: "INI-02",
+        name: "Initials 2",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/initials-2.jpeg",
+      },
+      {
+        id: "INI-03",
+        name: "Initials 3",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/initials-3.jpeg",
+      },
+      {
+        id: "INI-04",
+        name: "Initials 4",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/initials-4.jpeg",
+      },
     ]
   },
   {
@@ -150,7 +234,139 @@ export const portfolio = [
         desc: "",
         price: "Contact for Quote",
         img: "/key-chain-1.jpeg",
-        sizes: ["Standard"]
+      },
+      {
+        id: "KC-02",
+        name: "Key Chain 2",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/key-chain-2.jpeg",
+      },
+      {
+        id: "KC-03",
+        name: "Key Chain 3",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/key-chain-3.jpeg",
+      },
+    ]
+  },
+  {
+    id: "cat-6",
+    category: "Rakhi",
+    description: "",
+    items: [
+      {
+        id: "RKH-01",
+        name: "Rakhi 1",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/rakhi-1.jpeg",
+      },
+      {
+        id: "RKH-02",
+        name: "Rakhi 2",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/rakhi-2.jpeg",
+      },
+    ]
+  },
+  {
+    id: "cat-7",
+    category: "Table Pieces",
+    description: "",
+    items: [
+      {
+        id: "TP-01",
+        name: "Table Piece 1",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/table-piece-1.jpeg",
+      },
+    ]
+  },
+  {
+    id: "cat-8",
+    category: "Wedding Frames",
+    description: "",
+    items: [
+      {
+        id: "WF-01",
+        name: "Wedding Frame 1",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-1.jpeg",
+      },
+      {
+        id: "WF-02",
+        name: "Wedding Frame 2",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-2.jpeg",
+      },
+      {
+        id: "WF-03",
+        name: "Wedding Frame 3",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-3.jpeg",
+      },
+      {
+        id: "WF-04",
+        name: "Wedding Frame 4",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-4.jpeg",
+      },
+      {
+        id: "WF-05",
+        name: "Wedding Frame 5",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-5.jpeg",
+      },
+      {
+        id: "WF-06",
+        name: "Wedding Frame 6",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-6.jpeg",
+      },
+      {
+        id: "WF-07",
+        name: "Wedding Frame 7",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-7.jpeg",
+      },
+      {
+        id: "WF-08",
+        name: "Wedding Frame 8",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-8.jpeg",
+      },
+      {
+        id: "WF-09",
+        name: "Wedding Frame 9",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-9.jpeg",
+      },
+      {
+        id: "WF-10",
+        name: "Wedding Frame 10",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-10.jpeg",
+      },
+      {
+        id: "WF-11",
+        name: "Wedding Frame 11",
+        desc: "",
+        price: "Contact for Quote",
+        img: "/wedding-plate-11.jpeg",
       }
     ]
   }

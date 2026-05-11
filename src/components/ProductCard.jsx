@@ -4,12 +4,11 @@ import { businessInfo } from "../data/products";
 
 export default function ProductCard({ product }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [customInfo, setCustomInfo] = useState("");
 
   const getWhatsAppLink = () => {
     // Clean, direct, and simple WhatsApp message (No image links, no extra fluff)
-    const message = `Hi Thedecorarthome!\n\nI am interested in ordering:\n\n*Product Name:* ${product.name}\n*Product ID:* ${product.id}\n*Size:* ${selectedSize}\n\n*Custom Details:*\n${customInfo ? customInfo : "No specific details added. Let's discuss."}\n\nPlease let me know the quote and timeline.`;
+    const message = `Hi Thedecorarthome!\n\nI am interested in ordering:\n\n*Product Name:* ${product.name}\n*Product ID:* ${product.id}\n\n*Custom Details:*\n${customInfo ? customInfo : "No specific details added. Let's discuss."}\n\nPlease let me know the quote and timeline.`;
 
     return `https://wa.me/${businessInfo.phone}?text=${encodeURIComponent(message)}`;
   };
@@ -101,30 +100,9 @@ export default function ProductCard({ product }) {
                 details below to request a quote.
               </p>
 
-              <div className="mb-6">
-                <label className="block text-xs font-bold tracking-widest uppercase text-stone-500 mb-3">
-                  1. Select Preferred Size
-                </label>
-                <div className="flex flex-wrap gap-3">
-                  {product.sizes.map((size) => (
-                    <button
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all ${
-                        selectedSize === size
-                          ? "border-amber-600 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400"
-                          : "border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400 hover:border-amber-300"
-                      }`}
-                    >
-                      {size}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
               <div className="mb-8 flex-grow">
                 <label className="block text-xs font-bold tracking-widest uppercase text-stone-500 mb-3">
-                  2. Customization Details
+                  Customization Details
                 </label>
                 <textarea
                   rows="4"
