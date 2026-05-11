@@ -67,49 +67,55 @@ export default function Navbar() {
   }, [isOpen]);
 
   const navLinks = [
-    {
-      name: "Home",
-      path: "/",
-    },
-    {
-      name: "Showcase",
-      path: "/showcase",
-    },
-    {
-      name: "Contact",
-      path: "/contact",
-    },
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+    { name: "Contact", path: "/contact" },
   ];
 
   // Helper function to render the highly customized, wave-animated logo
   const renderAnimatedLogo = (isMobile = false) => (
-    <div className="flex items-end relative">
-      {brandText.map((char, index) => {
-        const distance = Math.abs(waveIndex - index);
-        const isCenter = distance === 0;
-        const isNeighbor = distance === 1;
+    <div className="flex items-center relative">
+      {/* 👇 THE SPINNING LOGO 👇 */}
+      <img
+        src="/logo.jpeg"
+        alt="Logo"
+        className={`object-contain animate-[spin_5s_linear_infinite] transition-all duration-300 z-10 ${
+          isMobile ? "w-7 h-7 mr-2" : "w-8 h-8 mr-3"
+        } invert dark:invert-0`}
+        // Note: 'dark:invert' automatically turns a black logo white in dark mode.
+        // If your logo is fully colored (like gold/blue), you can delete 'dark:invert'.
+      />
 
-        const baseSize = isMobile
-          ? "text-lg sm:text-xl"
-          : "text-[1.2rem] lg:text-[1.4rem]";
-        const baseColor =
-          isMobile && isOpen ? "text-white" : "text-stone-900 dark:text-white";
+      <div className="flex items-end relative">
+        {brandText.map((char, index) => {
+          const distance = Math.abs(waveIndex - index);
+          const isCenter = distance === 0;
+          const isNeighbor = distance === 1;
 
-        return (
-          <span
-            key={index}
-            className={`font-serif ${baseSize} tracking-[0.05em] uppercase origin-bottom inline-block transition-all duration-[900ms] ease-out ${
-              isCenter
-                ? "text-amber-500 scale-[1.25] -translate-y-1 drop-shadow-[0_0_12px_rgba(245,158,11,0.6)]"
-                : isNeighbor
-                  ? "text-amber-500/70 scale-[1.1] -translate-y-0.5 drop-shadow-[0_0_4px_rgba(245,158,11,0.2)]"
-                  : `${baseColor} scale-100 translate-y-0`
-            }`}
-          >
-            {char}
-          </span>
-        );
-      })}
+          const baseSize = isMobile
+            ? "text-lg sm:text-xl"
+            : "text-[1.2rem] lg:text-[1.4rem]";
+          const baseColor =
+            isMobile && isOpen
+              ? "text-white"
+              : "text-stone-900 dark:text-white";
+
+          return (
+            <span
+              key={index}
+              className={`font-serif ${baseSize} tracking-[0.05em] uppercase origin-bottom inline-block transition-all duration-[900ms] ease-out ${
+                isCenter
+                  ? "text-amber-500 scale-[1.25] -translate-y-1 drop-shadow-[0_0_12px_rgba(245,158,11,0.6)]"
+                  : isNeighbor
+                    ? "text-amber-500/70 scale-[1.1] -translate-y-0.5 drop-shadow-[0_0_4px_rgba(245,158,11,0.2)]"
+                    : `${baseColor} scale-100 translate-y-0`
+              }`}
+            >
+              {char}
+            </span>
+          );
+        })}
+      </div>
     </div>
   );
 
@@ -124,7 +130,7 @@ export default function Navbar() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[500%] bg-[conic-gradient(from_0deg,transparent_0_200deg,#f59e0b_360deg)] animate-[spin_4s_linear_infinite]"></div>
         </div>
 
-        {/* 👇 INNER GLASS BACKGROUND (Fixed Light Mode Contrast) 👇 */}
+        {/* Inner Glass Background */}
         <div className="absolute inset-[1px] bg-white/70 dark:bg-[#0a0a09]/95 backdrop-blur-xl rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-stone-200/80 dark:border-transparent z-0 transition-colors duration-500"></div>
 
         {/* --- ACTUAL NAVBAR CONTENT --- */}
@@ -201,7 +207,7 @@ export default function Navbar() {
           MOBILE: LIQUID CIRCLE MENU 
           ========================================================= */}
 
-      {/* 👇 MOBILE TOP BAR (Fixed Light Mode Contrast Gradient) 👇 */}
+      {/* MOBILE TOP BAR */}
       <div
         className={`md:hidden fixed top-0 w-full z-[100] px-4 py-6 flex justify-between items-center transition-all duration-500 ${isOpen ? "text-white" : "text-stone-900 dark:text-white bg-gradient-to-b from-white/90 via-white/50 to-transparent dark:from-[#0a0a09]/90 dark:via-[#0a0a09]/40"}`}
       >
