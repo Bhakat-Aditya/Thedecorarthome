@@ -1,24 +1,99 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>the-decor-art-home</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0a0a09" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <title>Thedecorarthome | Luxury Resin Art & Home Decor Studio</title>
+  <meta name="description"
+    content="A premium art studio in Howrah specializing in bespoke resin preservation, luxury wall clocks, customized house plates, and handcrafted home decor." />
+  <meta name="keywords"
+    content="Resin Art, Home Decor, Varmala Preservation, Luxury Wall Clocks, Custom House Plates, Resin Geode Art, Thedecorarthome, Howrah Art Studio" />
+  <meta name="author" content="Thedecorarthome" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thedecorarthome.com/" />
+  <meta property="og:title" content="Thedecorarthome | Custom Luxury Art" />
+  <meta property="og:description"
+    content="We freeze your most precious memories in time. Explore our bespoke resin preservation and luxury home decor." />
+  <meta property="og:image" content="https://thedecorarthome.com/product-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thedecorarthome | Luxury Resin Art" />
+  <meta name="twitter:description" content="Bespoke resin preservation and handcrafted home decor." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
+
   <style>
-    /* Force Tailwind's sans and serif to use beautiful fonts */
+    /* Premium Font Variables */
     :root {
       --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Inter', sans-serif;
     }
 
+    /* Apply base typography & Apple/Mac rendering optimization */
+    body {
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      background-color: #fafafa;
+      /* Prevents white flash before load */
+      color: #1c1917;
+      /* stone-900 */
+    }
+
+    /* Force Tailwind serif classes to use our gorgeous Playfair Display */
     .font-serif {
-      font-family: var(--font-serif);
+      font-family: var(--font-serif) !important;
+    }
+
+    /* ==========================================
+       CUSTOM TEXT SELECTION (High-End Polish)
+       ========================================== */
+    /* Light Mode Highlight */
+    ::selection {
+      background-color: #f59e0b;
+      /* Amber 500 */
+      color: #fff;
+    }
+
+    ::-moz-selection {
+      background-color: #f59e0b;
+      color: #fff;
+    }
+
+    /* Dark Mode specific base styles */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #050505;
+        color: #fafaf9;
+        /* stone-50 */
+      }
+    }
+
+    html.dark ::selection {
+      background-color: #f59e0b;
+      /* Amber 500 */
+      color: #050505;
+      /* Deep black text for contrast */
+    }
+
+    html.dark ::-moz-selection {
+      background-color: #f59e0b;
+      color: #050505;
     }
   </style>
 </head>

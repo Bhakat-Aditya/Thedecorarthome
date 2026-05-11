@@ -85,7 +85,6 @@ export default function Navbar() {
   const renderAnimatedLogo = (isMobile = false) => (
     <div className="flex items-end relative">
       {brandText.map((char, index) => {
-        // Calculate how far this letter is from the center of the wave
         const distance = Math.abs(waveIndex - index);
         const isCenter = distance === 0;
         const isNeighbor = distance === 1;
@@ -121,12 +120,12 @@ export default function Navbar() {
           ========================================================= */}
       <div className="hidden md:flex fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-5xl rounded-full group">
         {/* Continuous Light Beam Border (Vercel Style) */}
-        <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none opacity-50 dark:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none opacity-30 dark:opacity-100 transition-opacity duration-500">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[500%] bg-[conic-gradient(from_0deg,transparent_0_200deg,#f59e0b_360deg)] animate-[spin_4s_linear_infinite]"></div>
         </div>
 
-        {/* Inner Glass Background */}
-        <div className="absolute inset-[1px] bg-white/95 dark:bg-[#0a0a09]/95 backdrop-blur-3xl rounded-full shadow-[0_30px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-0 transition-colors duration-500"></div>
+        {/* 👇 INNER GLASS BACKGROUND (Fixed Light Mode Contrast) 👇 */}
+        <div className="absolute inset-[1px] bg-white/70 dark:bg-[#0a0a09]/95 backdrop-blur-xl rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-stone-200/80 dark:border-transparent z-0 transition-colors duration-500"></div>
 
         {/* --- ACTUAL NAVBAR CONTENT --- */}
         <div className="relative z-10 w-full flex items-center justify-between px-8 py-5">
@@ -147,7 +146,7 @@ export default function Navbar() {
                   `group relative flex flex-col items-center justify-center transition-colors duration-500 ${
                     isActive
                       ? "text-amber-600 dark:text-amber-500"
-                      : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white"
+                      : "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white"
                   }`
                 }
               >
@@ -159,12 +158,12 @@ export default function Navbar() {
           </div>
 
           {/* Vertical Divider */}
-          <div className="w-[1px] h-6 bg-stone-200 dark:bg-stone-800 mx-2"></div>
+          <div className="w-[1px] h-6 bg-stone-300 dark:bg-stone-800 mx-2"></div>
 
           {/* Morphing Theme Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="relative overflow-hidden w-10 h-10 rounded-full flex items-center justify-center border border-stone-200 dark:border-stone-800 hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-[0_0_15px_rgba(245,158,11,0.2)] bg-stone-50/50 dark:bg-black/50 transition-all duration-500"
+            className="relative overflow-hidden w-10 h-10 rounded-full flex items-center justify-center border border-stone-300 dark:border-stone-800 hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-[0_0_15px_rgba(245,158,11,0.2)] bg-white/80 dark:bg-black/50 transition-all duration-500"
             aria-label="Toggle Dark Mode"
           >
             <div
@@ -202,9 +201,9 @@ export default function Navbar() {
           MOBILE: LIQUID CIRCLE MENU 
           ========================================================= */}
 
-      {/* Mobile Top Bar */}
+      {/* 👇 MOBILE TOP BAR (Fixed Light Mode Contrast Gradient) 👇 */}
       <div
-        className={`md:hidden fixed top-0 w-full z-[100] px-4 py-6 flex justify-between items-center transition-colors duration-500 ${isOpen ? "text-white" : "text-stone-900 dark:text-white"}`}
+        className={`md:hidden fixed top-0 w-full z-[100] px-4 py-6 flex justify-between items-center transition-all duration-500 ${isOpen ? "text-white" : "text-stone-900 dark:text-white bg-gradient-to-b from-white/90 via-white/50 to-transparent dark:from-[#0a0a09]/90 dark:via-[#0a0a09]/40"}`}
       >
         {/* Animated Logo Injection (Mobile) */}
         <NavLink to="/" className="relative flex items-center z-50 h-8">

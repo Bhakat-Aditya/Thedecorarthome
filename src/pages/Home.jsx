@@ -98,7 +98,7 @@ export default function Home() {
           onContextMenu={(e) => e.preventDefault()}
         >
           <img
-            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop"
+            src="/house-plate-6.jpeg"
             alt="Varmala Art"
             className="w-full h-full object-cover pointer-events-none"
             draggable="false"
@@ -119,7 +119,7 @@ export default function Home() {
           onContextMenu={(e) => e.preventDefault()}
         >
           <img
-            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop"
+            src="/clock-1.jpeg"
             alt="Geode Clock Art"
             className="w-full h-full object-cover pointer-events-none"
             draggable="false"
@@ -137,7 +137,6 @@ export default function Home() {
               : "opacity-0 translate-y-10"
           }`}
         >
-         
           <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 dark:text-white leading-[1.1] md:leading-[1.05] mb-6 md:mb-8 tracking-tight">
             A warm welcome to <br className="hidden md:block" />
             <span className="italic text-amber-700 dark:text-amber-500 font-bold drop-shadow-sm">
@@ -170,7 +169,7 @@ export default function Home() {
                 onContextMenu={(e) => e.preventDefault()}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop"
+                  src="/house-plate-6.jpeg"
                   className="w-full h-full object-cover pointer-events-none"
                   draggable="false"
                   alt="Art 1"
@@ -186,7 +185,7 @@ export default function Home() {
                 onContextMenu={(e) => e.preventDefault()}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop"
+                  src="/clock-7.jpeg"
                   className="w-full h-full object-cover pointer-events-none"
                   draggable="false"
                   alt="Art 2"
@@ -347,7 +346,7 @@ export default function Home() {
                 onContextMenu={(e) => e.preventDefault()}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop"
+                  src="/house-plate-2.jpeg"
                   alt="Varmala Preservation"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out pointer-events-none"
                   draggable="false"
@@ -358,10 +357,10 @@ export default function Home() {
                 </div>
               </div>
               <h4 className="text-3xl font-serif font-bold text-stone-900 dark:text-white mb-3">
-                Eternal Varmala Block
+                Home Name Plate
               </h4>
               <p className="text-stone-500 dark:text-stone-400 font-light text-lg">
-                Crystal Resin & 24k Gold Flakes
+                Name plate made of resin and gold flakes
               </p>
             </div>
 
@@ -371,7 +370,7 @@ export default function Home() {
                 onContextMenu={(e) => e.preventDefault()}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop"
+                  src="/wedding-plate-1.jpeg"
                   alt="Geode Wall Clock"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out pointer-events-none"
                   draggable="false"
@@ -382,7 +381,7 @@ export default function Home() {
                 </div>
               </div>
               <h4 className="text-3xl font-serif font-bold text-stone-900 dark:text-white mb-3">
-                Midnight Geode Clock
+                Wedding Plate
               </h4>
               <p className="text-stone-500 dark:text-stone-400 font-light text-lg">
                 Walnut Wood, Resin & Amethyst Stones
@@ -511,9 +510,30 @@ export default function Home() {
       {/* =========================================================
           7. WHATSAPP CUSTOMER REVIEWS
           ========================================================= */}
-      <section className="py-32 bg-stone-50 dark:bg-[#0a0a09] border-t border-stone-200 dark:border-stone-800 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+      {/* =========================================================
+          7. WHATSAPP CUSTOMER REVIEWS (Image Only + Name)
+          ========================================================= */}
+      <section className="py-32 bg-stone-50 dark:bg-[#0a0a09] border-t border-stone-200 dark:border-stone-800 overflow-hidden relative">
+        {/* INJECTED MARQUEE CSS */}
+        <style>
+          {`
+            @keyframes scrollReviews {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-scroll-reviews {
+              animation: scrollReviews 30s linear infinite;
+              display: flex;
+              width: max-content;
+            }
+            .animate-scroll-reviews:hover {
+              animation-play-state: paused;
+            }
+          `}
+        </style>
+
+        <div className="max-w-7xl mx-auto px-6 mb-16">
+          <div className="text-center">
             <h2 className="text-sm tracking-[0.3em] uppercase text-amber-700 dark:text-amber-500 mb-4">
               Client Love
             </h2>
@@ -521,114 +541,78 @@ export default function Home() {
               Happy Customers
             </h3>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Review 1 */}
-            <div className="bg-white dark:bg-stone-900 p-8 rounded-[2rem] shadow-xl shadow-stone-200/50 dark:shadow-black/40 border border-stone-100 dark:border-stone-800">
+        {/* Carousel Container */}
+        <div className="w-full relative group">
+          <div className="animate-scroll-reviews gap-4 md:gap-6 px-4 md:px-6">
+            {/* 👇 THE REVIEW ARRAY: JUST ADD THE IMAGE FILE NAME AND CUSTOMER NAME 👇 */}
+            {[
+              ...[
+                { img: "review-1.jpeg" },
+                { img: "review-2.jpeg" },
+                { img: "review-3.jpeg" },
+                { img: "review-4.jpeg" },
+                { img: "review-5.jpeg" },
+                { img: "review-6.jpeg" },
+              ],
+              // Duplicated array to create the endless seamless loop
+              ...[
+                { img: "review-1.jpeg" },
+                { img: "review-2.jpeg" },
+                { img: "review-3.jpeg" },
+                { img: "review-4.jpeg" },
+
+                { img: "review-5.jpeg" },
+                { img: "review-6.jpeg" },
+              ],
+              ...[
+                { img: "review-1.jpeg" },
+                { img: "review-2.jpeg" },
+                { img: "review-3.jpeg" },
+                { img: "review-4.jpeg" },
+                { img: "review-5.jpeg" },
+                { img: "review-6.jpeg" },
+              ],
+              ...[
+                { img: "review-1.jpeg" },
+                { img: "review-2.jpeg" },
+                { img: "review-3.jpeg" },
+                { img: "review-4.jpeg" },
+                { img: "review-5.jpeg" },
+                { img: "review-6.jpeg" },
+              ],
+            ].map((review, index) => (
               <div
-                className="relative aspect-square rounded-[1.5rem] overflow-hidden mb-8 bg-stone-200 dark:bg-stone-800 select-none shadow-inner"
-                onContextMenu={(e) => e.preventDefault()}
+                key={index}
+                // Width calculations: ~50vw on mobile (2 items), ~25vw on desktop (4 items)
+                className="flex-shrink-0 w-[calc(50vw-1rem)] md:w-[calc(25vw-1.5rem)] max-w-[320px] flex flex-col items-center group/review"
               >
-                <video
-                  src="/videos/reel-1.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover pointer-events-none"
-                />
-                <div className="absolute bottom-4 w-full text-center text-white/80 font-serif text-xs font-bold tracking-[0.4em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] pointer-events-none z-10">
-                  Thedecorarthome
+                {/* Image Container */}
+                <div
+                  className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden bg-stone-200 dark:bg-stone-800 shadow-xl shadow-stone-200/50 dark:shadow-black/40 border border-stone-100 dark:border-stone-800 select-none"
+                  onContextMenu={(e) => e.preventDefault()}
+                >
+                  <img
+                    src={`/${review.img}`}
+                    className="w-full h-full object-cover pointer-events-none group-hover/review:scale-105 transition-transform duration-700 ease-out"
+                    draggable="false"
+                    alt={`Review by ${review.name}`}
+                    loading="lazy"
+                  />
+                  {/* Subtle Watermark Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+                  <div className="absolute bottom-4 w-full text-center text-white/90 font-serif text-[10px] font-bold tracking-[0.4em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] pointer-events-none z-10">
+                    Thedecorarthome
+                  </div>
                 </div>
               </div>
-              <div className="flex gap-1 mb-4 text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-current" />
-                ))}
-              </div>
-              <p className="text-stone-600 dark:text-stone-300 text-lg font-light leading-relaxed italic mb-6">
-                "The varmala preservation is absolutely beautiful, literally in
-                tears! Thank you for handling our memories with such care and
-                love."
-              </p>
-              <p className="text-stone-900 dark:text-white font-bold tracking-wide">
-                — Sneha R.{" "}
-                <span className="text-stone-400 font-normal text-sm ml-2">
-                  (via WhatsApp)
-                </span>
-              </p>
-            </div>
-
-            {/* Review 2 */}
-            <div className="bg-white dark:bg-stone-900 p-8 rounded-[2rem] shadow-xl shadow-stone-200/50 dark:shadow-black/40 border border-stone-100 dark:border-stone-800 md:translate-y-12">
-              <div
-                className="relative aspect-square rounded-[1.5rem] overflow-hidden mb-8 bg-stone-200 dark:bg-stone-800 select-none shadow-inner"
-                onContextMenu={(e) => e.preventDefault()}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop
-                  "
-                  className="w-full h-full object-cover pointer-events-none"
-                  draggable="false"
-                  alt="Customer Photo"
-                />
-                <div className="absolute bottom-4 w-full text-center text-white/80 font-serif text-xs font-bold tracking-[0.4em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] pointer-events-none z-10">
-                  Thedecorarthome
-                </div>
-              </div>
-              <div className="flex gap-1 mb-4 text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-current" />
-                ))}
-              </div>
-              <p className="text-stone-600 dark:text-stone-300 text-lg font-light leading-relaxed italic mb-6">
-                "Received the geode clock today. The finishing is mind-blowing!
-                Everyone in the family loved it, it looks so premium."
-              </p>
-              <p className="text-stone-900 dark:text-white font-bold tracking-wide">
-                — Rahul M.{" "}
-                <span className="text-stone-400 font-normal text-sm ml-2">
-                  (via WhatsApp)
-                </span>
-              </p>
-            </div>
-
-            {/* Review 3 */}
-            <div className="bg-white dark:bg-stone-900 p-8 rounded-[2rem] shadow-xl shadow-stone-200/50 dark:shadow-black/40 border border-stone-100 dark:border-stone-800">
-              <div
-                className="relative aspect-square rounded-[1.5rem] overflow-hidden mb-8 bg-stone-200 dark:bg-stone-800 select-none shadow-inner"
-                onContextMenu={(e) => e.preventDefault()}
-              >
-                <video
-                  src="/videos/reel-2.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover pointer-events-none"
-                />
-                <div className="absolute bottom-4 w-full text-center text-white/80 font-serif text-xs font-bold tracking-[0.4em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] pointer-events-none z-10">
-                  Thedecorarthome
-                </div>
-              </div>
-              <div className="flex gap-1 mb-4 text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-current" />
-                ))}
-              </div>
-              <p className="text-stone-600 dark:text-stone-300 text-lg font-light leading-relaxed italic mb-6">
-                "Ordered the resin name plate for our new house. The way the
-                gold flakes shine in the sunlight is incredible. Highly
-                recommended!"
-              </p>
-              <p className="text-stone-900 dark:text-white font-bold tracking-wide">
-                — Priya & Amit{" "}
-                <span className="text-stone-400 font-normal text-sm ml-2">
-                  (via WhatsApp)
-                </span>
-              </p>
-            </div>
+            ))}
           </div>
+
+          {/* Fade Gradients for seamless edges */}
+          <div className="absolute top-0 bottom-0 left-0 w-12 md:w-32 bg-gradient-to-r from-stone-50 dark:from-[#0a0a09] to-transparent pointer-events-none"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-12 md:w-32 bg-gradient-to-l from-stone-50 dark:from-[#0a0a09] to-transparent pointer-events-none"></div>
         </div>
       </section>
 
