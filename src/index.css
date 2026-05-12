@@ -34,3 +34,44 @@
   0% { clip-path: inset(100% 0 0 0); }
   100% { clip-path: inset(0 0 0 0); }
 }
+
+
+@keyframes floatY {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeSwap {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  15% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  85% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.animate-fadeSwap {
+  animation: fadeSwap 2.5s ease-in-out;
+}

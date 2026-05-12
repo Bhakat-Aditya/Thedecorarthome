@@ -277,7 +277,7 @@ export const portfolio = [
         price: "2000",
         img: "/table-piece-1.jpeg",
       },
-      
+
       {
         id: "TP-02",
         name: "Designer Table Showpiece",
@@ -369,6 +369,90 @@ export const portfolio = [
         price: "2000",
         img: "/wedding-plate-11.jpeg",
       }
+    ]
+  },
+  {
+    id: "cat-9",
+    category: "Puja Thali",
+    description: "",
+    items: [
+      {
+        id: "PT-01",
+        name: "Orange Theme Puja Thali",
+        desc: "",
+        price: "2000",
+        img: "/puja-thali-1.jpeg",
+      },
+      {
+        id: "PT-02",
+        name: "Pearl Theme Puja Thali",
+        desc: "",
+        price: "2000",
+        img: "/puja-thali-2.jpeg",
+      },
+      {
+        id: "PT-03",
+        name: "Ocean Theme Puja Thali",
+        desc: "",
+        price: "2000",
+        img: "/puja-thali-3.jpeg",
+      },
+    ]
+  },
+  {
+    id: "cat-10",
+    category: "Vermala Preservation",
+    description: "",
+    items: [
+      {
+        id: "VP-01",
+        name: "Clock setting Vermala Preservation",
+        desc: "",
+        price: "2000",
+        img: "/vermala-1.jpeg",
+      },
+      {
+        id: "VP-02",
+        name: "Square frame Vermala Preservation",
+        desc: "",
+        price: "2000",
+        img: "/vermala-2.jpeg",
+      },
+      {
+        id: "VP-03",
+        name: "Rectangle frame Vermala Preservation",
+        desc: "",
+        price: "2000",
+        img: "/vermala-3.jpeg",
+      },
+      {
+        id: "VP-04",
+        name: "Transparent frame Vermala Preservation",
+        desc: "",
+        price: "2000",
+        img: "/vermala-4.jpeg",
+      },
+      {
+        id: "VP-05",
+        name: "Rectangular Vermala Preservation",
+        desc: "",
+        price: "2000",
+        img: "/vermala-5.jpeg",
+      },
+      {
+        id: "VP-06",
+        name: "Wedding Photo Frame Vermala Preservation",
+        desc: "",
+        price: "2000",
+        img: "/vermala-6.jpeg",
+      },
+      // {
+      //   id: "VP-07",
+      //   name: "Vermala Preservation 7",
+      //   desc: "",
+      //   price: "2000",
+      //   img: "/vermala-7.jpeg",
+      // }
     ]
   }
 ];
