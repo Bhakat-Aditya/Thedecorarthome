@@ -20,12 +20,10 @@ export default function Home() {
     return false;
   });
 
-  // Refs for both videos so we can speed them up
   const desktopVideoRef = useRef(null);
   const mobileVideoRef = useRef(null);
 
   useEffect(() => {
-    // Set video playback speed to 1.25x for whichever video is rendering
     if (!introFinished) {
       if (desktopVideoRef.current) desktopVideoRef.current.playbackRate = 2.25;
       if (mobileVideoRef.current) mobileVideoRef.current.playbackRate = 2.25;
@@ -37,55 +35,171 @@ export default function Home() {
     sessionStorage.setItem("introPlayed", "true");
   };
 
+  // --- MOVIE-STYLE IMAGE CAROUSEL STATE ---
   const allLeftImages = [
-    "/key-chain-4.jpeg",
+    "/house-plate-1.jpeg",
+    "/house-plate-4.jpeg",
     "/house-plate-6.jpeg",
-    "/wedding-plate-1.jpeg",
-    "/clock-7.jpeg",
-    "/house-plate-2.jpeg",
-    "/wedding-plate-1.jpeg",
+    "/clock-2.jpeg",
+    "/clock-5.jpeg",
+    "/wall-art-2.jpeg",
+    "/wall-art-5.jpeg",
+    "/initials-3.jpeg",
+    "/key-chain-2.jpeg",
+    "/wedding-plate-4.jpeg",
+    "/wedding-plate-8.jpeg",
+    "/vermala-2.jpeg",
+    "/vermala-5.jpeg",
+    "/puja-thali-1.jpeg",
+    "/table-piece-1.jpeg",
   ];
 
   const allRightImages = [
-    "/vermala-3.jpeg",
-    "/clock-1.jpeg",
     "/house-plate-2.jpeg",
-    "/wedding-plate-1.jpeg",
-    "/key-chain-4.jpeg",
+    "/house-plate-7.jpeg",
+    "/clock-1.jpeg",
+    "/clock-7.jpeg",
+    "/clock-9.jpeg",
+    "/wall-art-1.jpeg",
+    "/wall-art-7.jpeg",
+    "/initials-4.jpeg",
+    "/key-chain-3.jpeg",
+    "/wedding-plate-2.jpeg",
+    "/wedding-plate-6.jpeg",
+    "/wedding-plate-10.jpeg",
+    "/vermala-3.jpeg",
+    "/vermala-6.jpeg",
+    "/puja-thali-3.jpeg",
   ];
 
   const [leftOffset, setLeftOffset] = useState(0);
   const [rightOffset, setRightOffset] = useState(0);
 
+  // Timers configured for a slow, luxurious cinematic pace
   useEffect(() => {
     const leftInterval = setInterval(() => {
       setLeftOffset((prev) => (prev + 1) % allLeftImages.length);
-    }, 2500);
+    }, 4500); // Changes every 4.5 seconds
 
     const rightInterval = setInterval(() => {
       setRightOffset((prev) => (prev + 1) % allRightImages.length);
-    }, 3000);
+    }, 5000); // Changes every 5 seconds (staggered for organic feel)
 
     return () => {
       clearInterval(leftInterval);
       clearInterval(rightInterval);
     };
-  }, []);
+  }, [allLeftImages.length, allRightImages.length]);
 
-  const leftImages = Array.from(
-    { length: 4 },
-    (_, i) => allLeftImages[(leftOffset + i) % allLeftImages.length],
-  );
+  // Configurations for exactly 4 Desktop Images
+ const desktopCards = [
+  // LEFT SIDE
+  {
+    pos: {
+      left: "2%",
+      top: "10%",
+      width: "22vw",
+      maxWidth: "240px",
+    },
+    aspectRatio: "4/5",
+    rotate: "-7deg",
+    images: allLeftImages,
+    activeIndex: leftOffset,
+    delay: "700ms",
+    floatAnim: "floatUpDown 6s ease-in-out infinite",
+  },
 
-  const rightImages = Array.from(
-    { length: 4 },
-    (_, i) => allRightImages[(rightOffset + i) % allRightImages.length],
-  );
+  {
+    pos: {
+      left: "8%",
+      top: "38%",
+      width: "17vw",
+      maxWidth: "200px",
+    },
+    aspectRatio: "1/1",
+    rotate: "5deg",
+    images: allLeftImages,
+    activeIndex: (leftOffset + 1) % allLeftImages.length,
+    delay: "900ms",
+    floatAnim: "floatUpDown 7s ease-in-out infinite 1s",
+  },
+
+  {
+    pos: {
+      left: "3%",
+      top: "66%",
+      width: "20vw",
+      maxWidth: "220px",
+    },
+    aspectRatio: "4/5",
+    rotate: "-5deg",
+    images: allLeftImages,
+    activeIndex: (leftOffset + 2) % allLeftImages.length,
+    delay: "1100ms",
+    floatAnim: "floatUpDown 8s ease-in-out infinite 2s",
+  },
+
+  // RIGHT SIDE
+  {
+    pos: {
+      right: "2%",
+      top: "10%",
+      width: "21vw",
+      maxWidth: "235px",
+    },
+    aspectRatio: "1/1",
+    rotate: "7deg",
+    images: allRightImages,
+    activeIndex: rightOffset,
+    delay: "800ms",
+    floatAnim: "floatUpDown 5.5s ease-in-out infinite 0.5s",
+  },
+
+  {
+    pos: {
+      right: "8%",
+      top: "38%",
+      width: "18vw",
+      maxWidth: "210px",
+    },
+    aspectRatio: "4/5",
+    rotate: "-6deg",
+    images: allRightImages,
+    activeIndex: (rightOffset + 1) % allRightImages.length,
+    delay: "1000ms",
+    floatAnim: "floatUpDown 6.5s ease-in-out infinite 1.5s",
+  },
+
+  {
+    pos: {
+      right: "3%",
+      top: "67%",
+      width: "20vw",
+      maxWidth: "220px",
+    },
+    aspectRatio: "1/1",
+    rotate: "5deg",
+    images: allRightImages,
+    activeIndex: (rightOffset + 2) % allRightImages.length,
+    delay: "1200ms",
+    floatAnim: "floatUpDown 8s ease-in-out infinite 2.5s",
+  },
+];
 
   return (
     <div className="w-full font-sans overflow-hidden bg-stone-50 dark:bg-[#0a0a09]">
+      {/* INJECTED CSS FOR FLOATING MOVIE ANIMATIONS */}
+      <style>
+        {`
+          @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+          }
+        `}
+      </style>
+
       {/* =========================================================
-          THE CINEMATIC ENTRANCE (Plays on First Load)
+          THE CINEMATIC ENTRANCE
           ========================================================= */}
       <div
         className={`fixed inset-0 z-[200] bg-black flex items-center justify-center transition-all duration-[1500ms] ease-[cubic-bezier(0.77,0,0.175,1)] ${
@@ -94,7 +208,6 @@ export default function Home() {
             : "translate-y-0 opacity-100"
         }`}
       >
-        {/* DESKTOP VIDEO (Hidden on Mobile) */}
         <video
           ref={desktopVideoRef}
           src="/videos/intro.webm"
@@ -105,7 +218,6 @@ export default function Home() {
           className="hidden md:block w-full h-full object-cover opacity-80"
         />
 
-        {/* MOBILE PORTRAIT VIDEO (Hidden on Desktop) */}
         <video
           ref={mobileVideoRef}
           src="/videos/intro-mobile.webm"
@@ -116,7 +228,6 @@ export default function Home() {
           className="block md:hidden w-full h-full object-cover opacity-80"
         />
 
-        {/* Skip Button */}
         <button
           onClick={handleIntroEnd}
           className="absolute bottom-8 right-8 text-white/70 hover:text-white text-[10px] md:text-xs tracking-[0.3em] uppercase border-b border-white/30 hover:border-white pb-1 transition-all z-10"
@@ -126,86 +237,67 @@ export default function Home() {
       </div>
 
       {/* =========================================================
-          1. ASTONISHING HERO SECTION (Responsive Fixes)
+          1. ASTONISHING HERO SECTION 
           ========================================================= */}
       <section className="relative min-h-[100svh] flex flex-col justify-center items-center px-4 md:px-6 text-center pt-24 md:pt-20 overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] md:w-[80vw] h-[120vw] md:h-[80vw] max-w-[800px] max-h-[800px] bg-amber-600/15 dark:bg-amber-600/20 blur-[100px] md:blur-[120px] rounded-full pointer-events-none z-0"></div>
 
-        {/* DESKTOP FLOATING COLLAGE */}
-        <div className="hidden lg:block absolute inset-0 pointer-events-none">
-          {/* LEFT */}
-          {leftImages.map((img, index) => (
+        {/* --- DESKTOP 3 FLOATING IMAGES PER SIDE --- */}
+        <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
+          {desktopCards.slice(0, 6).map((card, i) => (
             <div
-              key={`left-${index}-${img}`}
-              className={`absolute overflow-hidden rounded-[2rem] shadow-2xl select-none animate-fadeSwap transition-all duration-[2000ms] ease-out ${
+              key={`desktop-card-${i}`}
+              className={`absolute transition-all duration-[1500ms] ease-out ${
                 introFinished
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-24"
               }`}
-              style={{
-                left: index % 2 === 0 ? "4%" : "11%",
-                top: `${12 + index * 18}%`,
-                width: index % 2 === 0 ? "220px" : "180px",
-                aspectRatio: index % 2 === 0 ? "4/5" : "1/1",
-                transform: `rotate(${index % 2 === 0 ? "-8deg" : "6deg"})`,
-                transitionDelay: `${700 + index * 150}ms`,
-                animation: `floatY ${5 + index}s ease-in-out infinite`,
-              }}
-              onContextMenu={(e) => e.preventDefault()}
+              style={{ ...card.pos, transitionDelay: card.delay }}
             >
-              <img
-                src={img}
-                alt="Artwork"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-[2500ms]"
-                draggable="false"
-              />
+              {/* Floating Wrapper */}
+              <div
+                className="w-full relative"
+                style={{
+                  aspectRatio: card.aspectRatio,
+                  transform: `rotate(${card.rotate})`,
+                  animation: card.floatAnim,
+                }}
+              >
+                {/* Image Mask */}
+                <div
+                  className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] group pointer-events-auto select-none"
+                  onContextMenu={(e) => e.preventDefault()}
+                >
+                  {/* Crossfade Images */}
+                  {card.images.map((img, imgIndex) => (
+                    <img
+                      key={img}
+                      src={img}
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ease-in-out group-hover:scale-110 ${
+                        imgIndex === card.activeIndex
+                          ? "opacity-100 scale-100 blur-none z-10"
+                          : "opacity-0 scale-105 blur-sm z-0"
+                      }`}
+                      draggable="false"
+                      alt="Art"
+                    />
+                  ))}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent"></div>
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent z-20 pointer-events-none"></div>
 
-              <div className="absolute bottom-4 w-full text-center text-white/80 font-serif text-[10px] font-bold tracking-[0.3em] uppercase drop-shadow-md">
-                Thedecorarthome
-              </div>
-            </div>
-          ))}
-
-          {/* RIGHT */}
-          {rightImages.map((img, index) => (
-            <div
-              key={`right-${index}-${img}`}
-              className={`absolute overflow-hidden rounded-[2rem] shadow-2xl select-none animate-fadeSwap transition-all duration-[2000ms] ease-out ${
-                introFinished
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-24"
-              }`}
-              style={{
-                right: index % 2 === 0 ? "4%" : "11%",
-                top: `${10 + index * 18}%`,
-                width: index % 2 === 0 ? "210px" : "185px",
-                aspectRatio: index % 2 === 0 ? "1/1" : "4/5",
-                transform: `rotate(${index % 2 === 0 ? "8deg" : "-6deg"})`,
-                transitionDelay: `${900 + index * 150}ms`,
-                animation: `floatY ${6 + index}s ease-in-out infinite`,
-              }}
-              onContextMenu={(e) => e.preventDefault()}
-            >
-              <img
-                src={img}
-                alt="Artwork"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-[2500ms]"
-                draggable="false"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent"></div>
-
-              <div className="absolute bottom-4 w-full text-center text-white/80 font-serif text-[10px] font-bold tracking-[0.3em] uppercase drop-shadow-md">
-                Thedecorarthome
+                  {/* Watermark */}
+                  <div className="absolute bottom-4 w-full text-center text-white/90 font-serif text-[10px] font-bold tracking-[0.3em] uppercase drop-shadow-md z-20 pointer-events-none">
+                    Thedecorarthome
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* MAIN CONTENT */}
+        {/* --- MAIN HERO TEXT --- */}
         <div
           className={`relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center transition-all duration-1000 delay-500 ${
             introFinished
@@ -213,14 +305,14 @@ export default function Home() {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 dark:text-white leading-[1.1] md:leading-[1.05] mb-6 md:mb-8 tracking-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 dark:text-white leading-[1.1] md:leading-[1.05] mb-6 md:mb-8 tracking-tight drop-shadow-2xl md:drop-shadow-none bg-white/30 dark:bg-black/30 md:bg-transparent backdrop-blur-md md:backdrop-blur-none rounded-3xl p-4 md:p-0">
             A warm welcome to <br className="hidden md:block" />
             <span className="italic text-amber-700 dark:text-amber-500 font-bold drop-shadow-sm">
               Thedecorarthome.
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-2xl text-stone-600 dark:text-stone-300 max-w-2xl font-light leading-relaxed mb-8 md:mb-16 px-2">
+          <p className="text-base sm:text-lg md:text-2xl text-stone-900 dark:text-stone-300 max-w-2xl font-semibold md:font-light leading-relaxed mb-8 md:mb-16 px-2 drop-shadow-md md:drop-shadow-none">
             We don't just make art; we freeze your most precious memories in
             time. Handcrafted with devotion in Howrah.
           </p>
@@ -233,44 +325,64 @@ export default function Home() {
               Discover The Art
             </Link>
 
-            {/* MOBILE COLLAGE */}
+            {/* --- MOBILE COLLAGE (UNCHANGED) --- */}
             <div className="flex lg:hidden w-full max-w-[280px] sm:max-w-[320px] justify-center gap-3 mt-6 z-10">
+              {/* Mobile Card 1 */}
               <div
-                className={`w-1/2 aspect-[4/5] rounded-2xl overflow-hidden shadow-xl translate-y-2 select-none transition-all duration-[1500ms] ${
+                className={`w-1/2 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl translate-y-2 select-none transition-all duration-[1500ms] relative group ${
                   introFinished
                     ? "opacity-100 translate-y-2"
                     : "opacity-0 translate-y-10"
                 }`}
-                style={{ transitionDelay: "700ms" }}
+                style={{
+                  transitionDelay: "700ms",
+                  animation: "floatUpDown 6s ease-in-out infinite",
+                }}
               >
-                <img
-                  src="/house-plate-6.jpeg"
-                  className="w-full h-full object-cover"
-                  draggable="false"
-                  alt="Art 1"
-                />
+                {allLeftImages.map((img, idx) => (
+                  <img
+                    key={img}
+                    src={img}
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ease-in-out ${
+                      idx === leftOffset
+                        ? "opacity-100 scale-100 blur-none z-10"
+                        : "opacity-0 scale-105 blur-sm z-0"
+                    }`}
+                    alt="Art"
+                  />
+                ))}
               </div>
 
+              {/* Mobile Card 2 */}
               <div
-                className={`w-1/2 aspect-square rounded-2xl overflow-hidden shadow-xl -translate-y-2 select-none transition-all duration-[1500ms] ${
+                className={`w-1/2 aspect-square rounded-2xl overflow-hidden shadow-2xl -translate-y-2 select-none transition-all duration-[1500ms] relative group ${
                   introFinished
                     ? "opacity-100 -translate-y-2"
                     : "opacity-0 translate-y-6"
                 }`}
-                style={{ transitionDelay: "900ms" }}
+                style={{
+                  transitionDelay: "900ms",
+                  animation: "floatUpDown 7s ease-in-out infinite 1s",
+                }}
               >
-                <img
-                  src="/clock-7.jpeg"
-                  className="w-full h-full object-cover"
-                  draggable="false"
-                  alt="Art 2"
-                />
+                {allRightImages.map((img, idx) => (
+                  <img
+                    key={img}
+                    src={img}
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ease-in-out ${
+                      idx === rightOffset
+                        ? "opacity-100 scale-100 blur-none z-10"
+                        : "opacity-0 scale-105 blur-sm z-0"
+                    }`}
+                    alt="Art"
+                  />
+                ))}
               </div>
             </div>
 
             {/* Scroll Indicator */}
-            <span className="text-stone-400 animate-bounce mt-6 md:mt-8 block">
-              <ArrowDown className="w-5 h-5 md:w-6 md:h-6 opacity-50" />
+            <span className="text-stone-900 dark:text-stone-400 animate-bounce mt-6 md:mt-8 block">
+              <ArrowDown className="w-5 h-5 md:w-6 md:h-6 opacity-70" />
             </span>
           </div>
         </div>
@@ -558,7 +670,6 @@ export default function Home() {
           5. WHATSAPP CUSTOMER REVIEWS
           ========================================================= */}
       <section className="py-32 bg-stone-50 dark:bg-[#0a0a09] border-t border-stone-200 dark:border-stone-800 overflow-hidden relative">
-        {/* INJECTED MARQUEE CSS */}
         <style>
           {`
             @keyframes scrollReviews {
@@ -587,10 +698,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Carousel Container */}
         <div className="w-full relative group">
           <div className="animate-scroll-reviews gap-4 md:gap-6 px-4 md:px-6">
-            {/* 👇 THE REVIEW ARRAY: JUST ADD THE IMAGE FILE NAME AND CUSTOMER NAME 👇 */}
             {[
               ...[
                 { img: "review-1.jpeg" },
@@ -600,13 +709,11 @@ export default function Home() {
                 { img: "review-5.jpeg" },
                 { img: "review-6.jpeg" },
               ],
-              // Duplicated array to create the endless seamless loop
               ...[
                 { img: "review-1.jpeg" },
                 { img: "review-2.jpeg" },
                 { img: "review-3.jpeg" },
                 { img: "review-4.jpeg" },
-
                 { img: "review-5.jpeg" },
                 { img: "review-6.jpeg" },
               ],
@@ -629,10 +736,8 @@ export default function Home() {
             ].map((review, index) => (
               <div
                 key={index}
-                // Width calculations: ~50vw on mobile (2 items), ~25vw on desktop (4 items)
                 className="flex-shrink-0 w-[calc(50vw-1rem)] md:w-[calc(25vw-1.5rem)] max-w-[320px] flex flex-col items-center group/review"
               >
-                {/* Image Container */}
                 <div
                   className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden bg-stone-200 dark:bg-stone-800 shadow-xl shadow-stone-200/50 dark:shadow-black/40 border border-stone-100 dark:border-stone-800 select-none"
                   onContextMenu={(e) => e.preventDefault()}
@@ -641,10 +746,9 @@ export default function Home() {
                     src={`/${review.img}`}
                     className="w-full h-full object-cover pointer-events-none group-hover/review:scale-105 transition-transform duration-700 ease-out"
                     draggable="false"
-                    alt={`Review by ${review.name}`}
+                    alt={`Review ${index}`}
                     loading="lazy"
                   />
-                  {/* Subtle Watermark Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 w-full text-center text-white/90 font-serif text-[10px] font-bold tracking-[0.4em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] pointer-events-none z-10">
                     Thedecorarthome
@@ -654,7 +758,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Fade Gradients for seamless edges */}
           <div className="absolute top-0 bottom-0 left-0 w-12 md:w-32 bg-gradient-to-r from-stone-50 dark:from-[#0a0a09] to-transparent pointer-events-none"></div>
           <div className="absolute top-0 bottom-0 right-0 w-12 md:w-32 bg-gradient-to-l from-stone-50 dark:from-[#0a0a09] to-transparent pointer-events-none"></div>
         </div>
