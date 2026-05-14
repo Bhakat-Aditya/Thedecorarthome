@@ -93,99 +93,99 @@ export default function Home() {
   }, [allLeftImages.length, allRightImages.length]);
 
   // Configurations for exactly 4 Desktop Images
- const desktopCards = [
-  // LEFT SIDE
-  {
-    pos: {
-      left: "2%",
-      top: "10%",
-      width: "22vw",
-      maxWidth: "240px",
+  const desktopCards = [
+    // LEFT SIDE
+    {
+      pos: {
+        left: "2%",
+        top: "10%",
+        width: "22vw",
+        maxWidth: "240px",
+      },
+      aspectRatio: "4/5",
+      rotate: "-7deg",
+      images: allLeftImages,
+      activeIndex: leftOffset,
+      delay: "700ms",
+      floatAnim: "floatUpDown 6s ease-in-out infinite",
     },
-    aspectRatio: "4/5",
-    rotate: "-7deg",
-    images: allLeftImages,
-    activeIndex: leftOffset,
-    delay: "700ms",
-    floatAnim: "floatUpDown 6s ease-in-out infinite",
-  },
 
-  {
-    pos: {
-      left: "8%",
-      top: "38%",
-      width: "17vw",
-      maxWidth: "200px",
+    {
+      pos: {
+        left: "8%",
+        top: "38%",
+        width: "17vw",
+        maxWidth: "200px",
+      },
+      aspectRatio: "1/1",
+      rotate: "5deg",
+      images: allLeftImages,
+      activeIndex: (leftOffset + 1) % allLeftImages.length,
+      delay: "900ms",
+      floatAnim: "floatUpDown 7s ease-in-out infinite 1s",
     },
-    aspectRatio: "1/1",
-    rotate: "5deg",
-    images: allLeftImages,
-    activeIndex: (leftOffset + 1) % allLeftImages.length,
-    delay: "900ms",
-    floatAnim: "floatUpDown 7s ease-in-out infinite 1s",
-  },
 
-  {
-    pos: {
-      left: "3%",
-      top: "66%",
-      width: "20vw",
-      maxWidth: "220px",
+    {
+      pos: {
+        left: "3%",
+        top: "66%",
+        width: "20vw",
+        maxWidth: "220px",
+      },
+      aspectRatio: "4/5",
+      rotate: "-5deg",
+      images: allLeftImages,
+      activeIndex: (leftOffset + 2) % allLeftImages.length,
+      delay: "1100ms",
+      floatAnim: "floatUpDown 8s ease-in-out infinite 2s",
     },
-    aspectRatio: "4/5",
-    rotate: "-5deg",
-    images: allLeftImages,
-    activeIndex: (leftOffset + 2) % allLeftImages.length,
-    delay: "1100ms",
-    floatAnim: "floatUpDown 8s ease-in-out infinite 2s",
-  },
 
-  // RIGHT SIDE
-  {
-    pos: {
-      right: "2%",
-      top: "10%",
-      width: "21vw",
-      maxWidth: "235px",
+    // RIGHT SIDE
+    {
+      pos: {
+        right: "2%",
+        top: "10%",
+        width: "21vw",
+        maxWidth: "235px",
+      },
+      aspectRatio: "1/1",
+      rotate: "7deg",
+      images: allRightImages,
+      activeIndex: rightOffset,
+      delay: "800ms",
+      floatAnim: "floatUpDown 5.5s ease-in-out infinite 0.5s",
     },
-    aspectRatio: "1/1",
-    rotate: "7deg",
-    images: allRightImages,
-    activeIndex: rightOffset,
-    delay: "800ms",
-    floatAnim: "floatUpDown 5.5s ease-in-out infinite 0.5s",
-  },
 
-  {
-    pos: {
-      right: "8%",
-      top: "38%",
-      width: "18vw",
-      maxWidth: "210px",
+    {
+      pos: {
+        right: "8%",
+        top: "38%",
+        width: "18vw",
+        maxWidth: "210px",
+      },
+      aspectRatio: "4/5",
+      rotate: "-6deg",
+      images: allRightImages,
+      activeIndex: (rightOffset + 1) % allRightImages.length,
+      delay: "1000ms",
+      floatAnim: "floatUpDown 6.5s ease-in-out infinite 1.5s",
     },
-    aspectRatio: "4/5",
-    rotate: "-6deg",
-    images: allRightImages,
-    activeIndex: (rightOffset + 1) % allRightImages.length,
-    delay: "1000ms",
-    floatAnim: "floatUpDown 6.5s ease-in-out infinite 1.5s",
-  },
 
-  {
-    pos: {
-      right: "3%",
-      top: "67%",
-      width: "20vw",
-      maxWidth: "220px",
+    {
+      pos: {
+        right: "3%",
+        top: "67%",
+        width: "20vw",
+        maxWidth: "220px",
+      },
+      aspectRatio: "1/1",
+      rotate: "5deg",
+      images: allRightImages,
+      activeIndex: (rightOffset + 2) % allRightImages.length,
+      delay: "1200ms",
+      floatAnim: "floatUpDown 8s ease-in-out infinite 2.5s",
     },
-    aspectRatio: "1/1",
-    rotate: "5deg",
-    images: allRightImages,
-    activeIndex: (rightOffset + 2) % allRightImages.length,
-    delay: "1200ms",
-    floatAnim: "floatUpDown 8s ease-in-out infinite 2.5s",
-  },
-];
+  ];
 
   return (
     <div className="w-full font-sans overflow-hidden bg-stone-50 dark:bg-[#0a0a09]">
@@ -447,6 +447,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Workshop />
 
       {/* =========================================================
           3. SAMPLE WORKS SHOWCASE
@@ -905,7 +907,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <Workshop />
     </div>
   );
 }
