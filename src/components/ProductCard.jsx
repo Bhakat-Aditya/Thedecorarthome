@@ -7,49 +7,36 @@ export default function ProductCard({ product }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [customInfo, setCustomInfo] = useState("");
 
-  // Stop background scrolling when modal opens
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
-
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isModalOpen]);
 
   const getWhatsAppLink = () => {
-    const message = `Hi Thedecorarthome!
-
-I am interested in ordering:
-
-*Product Name:* ${product.name}
-
-*Customization Details:*
-${customInfo ? customInfo : "No specific details added. Let's discuss."}
-
-Please let me know the final quote and timeline.`;
-
-    return `https://wa.me/${
-      businessInfo.phone
-    }?text=${encodeURIComponent(message)}`;
+    const message = `Hi Thedecorarthome!\n\nI am interested in ordering:\n\n*Product Name:* ${product.name}\n\n*Customization Details:*\n${customInfo ? customInfo : "No specific details added. Let's discuss."}\n\nPlease let me know the final quote and timeline.`;
+    return `https://wa.me/${businessInfo.phone}?text=${encodeURIComponent(message)}`;
   };
 
   return (
     <>
       {/* PRODUCT CARD */}
       <div className="group flex flex-col bg-white dark:bg-stone-900 rounded-[2rem] overflow-hidden border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:shadow-amber-900/5 transition-all duration-500">
-        {/* IMAGE */}
+        {/* IMAGE CONTAINER - Set to aspect-square */}
         <div
-          className="relative h-72 overflow-hidden bg-stone-100 dark:bg-stone-800 select-none"
+          className="relative w-full aspect-square overflow-hidden bg-stone-100 dark:bg-stone-800 select-none"
           onContextMenu={(e) => e.preventDefault()}
         >
           <img
             src={product.img}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none"
+            // Removed group-hover:scale-105 to prevent zoom
+            className="w-full h-full object-cover transition-transform duration-700 ease-out pointer-events-none"
             loading="lazy"
             draggable="false"
           />
@@ -88,15 +75,12 @@ Please let me know the final quote and timeline.`;
         typeof document !== "undefined" &&
         createPortal(
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6">
-            {/* Overlay */}
             <div
               className="absolute inset-0 bg-black/80 backdrop-blur-md"
               onClick={() => setIsModalOpen(false)}
             ></div>
 
-            {/* Modal Container */}
             <div className="relative w-full max-w-5xl bg-white dark:bg-stone-950 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row z-10 max-h-[90vh] animate-fade-in-up">
-              {/* Close Button */}
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-4 right-4 z-20 p-2 bg-white/50 dark:bg-black/50 backdrop-blur-md rounded-full text-stone-900 dark:text-white hover:bg-amber-500 hover:text-white transition-colors"
@@ -104,9 +88,9 @@ Please let me know the final quote and timeline.`;
                 <X className="w-5 h-5" />
               </button>
 
-              {/* LEFT IMAGE */}
+              {/* MODAL IMAGE - Set to aspect-square on mobile, auto on desktop */}
               <div
-                className="w-full md:w-1/2 h-72 md:h-auto bg-stone-100 dark:bg-stone-900 relative select-none"
+                className="w-full md:w-1/2 aspect-square md:aspect-auto bg-stone-100 dark:bg-stone-900 relative select-none"
                 onContextMenu={(e) => e.preventDefault()}
               >
                 <img
@@ -116,15 +100,12 @@ Please let me know the final quote and timeline.`;
                   draggable="false"
                 />
 
-                {/* Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent"></div>
 
-                {/* Product ID */}
                 <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs tracking-widest uppercase z-20">
                   ID: {product.id}
                 </div>
 
-                {/* Watermark */}
                 <div className="absolute bottom-4 w-full text-center text-white/80 font-serif text-sm font-bold tracking-[0.3em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] z-20 pointer-events-none">
                   Thedecorarthome
                 </div>
@@ -132,17 +113,14 @@ Please let me know the final quote and timeline.`;
 
               {/* RIGHT CONTENT */}
               <div className="w-full md:w-1/2 p-8 md:p-10 flex flex-col overflow-y-auto">
-                {/* Product Name */}
                 <h3 className="text-3xl font-serif font-bold text-stone-900 dark:text-white mb-2 leading-tight">
                   {product.name}
                 </h3>
 
-                {/* Price */}
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-3xl font-bold text-amber-700 dark:text-amber-500">
                     ₹{product.price}/-
                   </span>
-
                   <span className="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-500/10 text-amber-800 dark:text-amber-400 text-[10px] font-bold tracking-[0.2em] uppercase">
                     Starting Price
                   </span>
@@ -152,63 +130,35 @@ Please let me know the final quote and timeline.`;
                 <div className="mb-8 rounded-[1.75rem] border border-amber-200/50 dark:border-amber-500/20 bg-gradient-to-br from-amber-50/90 via-white to-stone-50 dark:from-amber-500/10 dark:via-stone-900 dark:to-stone-950 p-6 shadow-xl shadow-amber-100/40 dark:shadow-none backdrop-blur-sm">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-2 h-2 rounded-full bg-amber-500"></div>
-
                     <h4 className="text-xs font-bold tracking-[0.25em] uppercase text-amber-800 dark:text-amber-400">
                       Pricing & Customization
                     </h4>
                   </div>
-
                   <div className="space-y-4 text-sm leading-relaxed text-stone-700 dark:text-stone-300">
                     <p>
                       Final pricing may vary depending on{" "}
                       <span className="font-semibold text-stone-900 dark:text-white">
-                        size, decoration style, resin detailing, floral
-                        preservation and crystal work
+                        size, decoration style, resin detailing, and floral
+                        preservation
                       </span>
                       .
-                    </p>
-
-                    <p>
-                      Premium finishes including gold flakes, luxury stones and
-                      custom artistic elements may affect the final quotation.
-                    </p>
-
-                    <p>
-                      Every artwork is handcrafted individually and fully
-                      customizable according to your preferred theme and
-                      aesthetic.
                     </p>
                   </div>
                 </div>
 
-                {/* Description */}
-                <p className="text-stone-500 dark:text-stone-400 font-light mb-8 leading-relaxed">
-                  Customize your artwork to perfectly match your vision. Share
-                  your preferred colors, names, inspirations or special
-                  personalization details below.
-                </p>
-
-                {/* Textarea */}
                 <div className="mb-8 flex-grow">
                   <label className="block text-xs font-bold tracking-widest uppercase text-stone-500 mb-3">
                     Customization Details
                   </label>
-
                   <textarea
                     rows="4"
-                    placeholder="e.g., Ocean blue theme with gold flakes, couple names, wedding date, premium crystal border..."
+                    placeholder="e.g., Ocean blue theme with gold flakes..."
                     value={customInfo}
                     onChange={(e) => setCustomInfo(e.target.value)}
                     className="w-full p-4 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 resize-none transition-all"
                   ></textarea>
-
-                  <p className="text-xs text-stone-400 mt-3">
-                    *You can share inspiration/reference photos directly after
-                    WhatsApp opens.
-                  </p>
                 </div>
 
-                {/* WhatsApp Button */}
                 <a
                   href={getWhatsAppLink()}
                   target="_blank"
