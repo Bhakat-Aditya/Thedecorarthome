@@ -162,7 +162,7 @@ export const portfolio = [
         id: "WA-04",
         name: "Block Theme Wall Art",
         desc: "",
-        price: "2000",
+        price: "300",
         img: "/wall-art-4.jpeg",
       },
       {
@@ -253,14 +253,14 @@ export const portfolio = [
         id: "RKH-01",
         name: "Devotional Rakhi",
         desc: "",
-        price: "2000",
+        price: "300",
         img: "/rakhi-1.jpeg",
       },
       {
         id: "RKH-02",
         name: "Devotional Rakhi",
         desc: "",
-        price: "2000",
+        price: "300",
         img: "/rakhi-2.jpeg",
       },
     ]
