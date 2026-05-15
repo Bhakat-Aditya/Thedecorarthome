@@ -262,7 +262,7 @@ export default function WorkshopPage() {
                   Timings
                 </p>
                 <p className="text-stone-900 dark:text-white font-serif text-xl font-bold mt-1">
-                  11:00 AM - 4:00 PM
+                  4 hrs
                 </p>
               </div>
             </div>
@@ -276,7 +276,7 @@ export default function WorkshopPage() {
                   Location
                 </p>
                 <p className="text-stone-900 dark:text-white font-serif text-xl font-bold mt-1">
-                  Liluah, Howrah
+                  Kolkata
                 </p>
               </div>
             </div>

@@ -452,9 +452,9 @@ export default function Home() {
           ========================================================= */}
       <section className="py-24 bg-white dark:bg-stone-900 border-t border-stone-100 dark:border-stone-800 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Heading */}
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
+          {/* Heading - UPDATED MOBILE LAYOUT */}
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6">
+            <div className="text-center md:text-left w-full md:w-auto">
               <h2 className="text-sm tracking-[0.35em] uppercase text-stone-400 dark:text-stone-500 mb-4">
                 The Portfolio
               </h2>
@@ -466,7 +466,7 @@ export default function Home() {
 
             <Link
               to="/showcase"
-              className="group text-sm font-bold tracking-[0.2em] uppercase text-stone-600 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-500 transition-colors"
+              className="group text-sm font-bold tracking-[0.2em] uppercase text-stone-600 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-500 transition-colors self-end md:self-auto"
             >
               <span className="border-b-2 border-stone-300 group-hover:border-amber-600 pb-1 transition-colors">
                 View Full Gallery →
@@ -614,8 +614,9 @@ export default function Home() {
           ========================================================= */}
       <section className="py-24 bg-white dark:bg-stone-900 border-t border-stone-100 dark:border-stone-800 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
+          {/* Heading - UPDATED MOBILE LAYOUT */}
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6">
+            <div className="text-center md:text-left w-full md:w-auto">
               <h2 className="text-sm tracking-[0.3em] uppercase text-stone-400 dark:text-stone-500 mb-4">
                 Studio Diary
               </h2>
@@ -627,7 +628,7 @@ export default function Home() {
               href={businessInfo.instagram}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase border-b-2 border-stone-300 hover:border-amber-600 pb-1 transition-colors text-stone-600 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-500"
+              className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase border-b-2 border-stone-300 hover:border-amber-600 pb-1 transition-colors text-stone-600 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-500 self-end md:self-auto"
             >
               <FaInstagram className="w-4 h-4" /> View All on Instagram
             </a>
