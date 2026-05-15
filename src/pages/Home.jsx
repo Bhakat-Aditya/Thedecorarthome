@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { businessInfo } from "../data/products";
 import { FaInstagram } from "react-icons/fa";
-import Workshop from "../components/Workshop";
 
 export default function Home() {
   // --- CINEMATIC INTRO STATE ---
@@ -447,8 +446,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Workshop />
 
       {/* =========================================================
           3. SAMPLE WORKS SHOWCASE

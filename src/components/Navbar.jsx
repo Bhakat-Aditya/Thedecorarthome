@@ -70,6 +70,7 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "Showcase", path: "/showcase" },
     { name: "Contact", path: "/contact" },
+    { name: "Workshop", path: "/workshop" }
   ];
 
   // Helper function to render the highly customized, wave-animated logo

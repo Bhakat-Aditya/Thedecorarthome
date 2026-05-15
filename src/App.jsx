@@ -6,6 +6,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp'; // Add this
 import Home from './pages/Home';
 import Showcase from './pages/Showcase';
 import Contact from './pages/Contact';
+import WorkshopPage from './pages/Workshop';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/showcase" element={<Showcase />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/workshop" element={<WorkshopPage />} />
           </Routes>
         </main>
 
