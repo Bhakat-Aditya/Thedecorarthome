@@ -179,6 +179,14 @@ export const portfolio = [
         price: "2000",
         img: "/wall-art-7.jpeg",
       },
+      {
+        id: "WA-08",
+        name: "Devotional Resin Wall Art",
+        desc: "",
+        price: "2000",
+        img: "/wall-art-8.jpeg",
+      },
+      
     ]
   },
   {
